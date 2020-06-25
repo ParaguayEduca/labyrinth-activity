@@ -27,7 +27,7 @@ import cairo
 import os
 import logging
 import tempfile
-import cStringIO
+#import cStringIO
 
 from gi.repository import Gtk
 from gi.repository import GdkPixbuf
@@ -75,7 +75,7 @@ class ImageThought (ResizableThought):
                 try:
                     self.orig_pic = GdkPixbuf.Pixbuf.new_from_file(jobject.file_path)
                     self.filename = os.path.join('images', os.path.basename(jobject.file_path))
-                except Exception, e:
+                except Exception as e:
                     logging.error("journal_open_image: %s" % e)
                     return False
             else:
@@ -223,7 +223,7 @@ class ImageThought (ResizableThought):
             if n.nodeName == "Extended":
                 self.extended_buffer.load(n)
             else:
-                print "Unknown: "+n.nodeName
+                print ("Unknown: "+n.nodeName)
         margin = utils.margin_required (utils.STYLE_NORMAL)
         self.pic_location = (self.ul[0]+margin[0], self.ul[1]+margin[1])
         self.orig_pic = tar.read_pixbuf(self.filename)

@@ -201,7 +201,7 @@ class LabelThought (TextThought):
                 if attr:  ## FIXME: REMOVE THIS
                     self.attributes.change(attr)
             else:
-                print "Unknown: "+n.nodeName
+                print ("Unknown: "+n.nodeName)
         self.rebuild_byte_table ()
         self.recalc_edges()
 
