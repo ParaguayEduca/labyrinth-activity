@@ -33,6 +33,11 @@ DELETE_LETTER = 102
 DELETE_WORD = 103
 TRANSFORM_CANVAS = 104
 
+try:
+  basestring
+except NameError:
+  basestring = str
+  
 class UndoAction:
     def __init__(self, owner, undo_type, callback, *args):
         self.owner = owner
@@ -243,7 +248,7 @@ class UndoManager:
             return
 
         if not isinstance(action, UndoAction):
-            print "Error: Not a valid undo action.  Ignoring."
+            print ("Error: Not a valid undo action.  Ignoring.")
             return
 
         del self.redo_list[:]

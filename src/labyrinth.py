@@ -96,7 +96,7 @@ def main():
         Gtk.main()
 
     except:
-        print "Exception caught while running.  Dying a death."
+        print ("Exception caught while running.  Dying a death.")
         sys.exit(1)
 
 if __name__ == '__main__':

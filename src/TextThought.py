@@ -913,7 +913,7 @@ class TextThought (ResizableThought):
                 ##elif attrType == "font":
                 ##    self.attributes["font"] = font
             else:
-                print "Unknown: "+n.nodeName
+                print ("Unknown: "+n.nodeName)
         self.rebuild_byte_table ()
         self.recalc_edges()
 

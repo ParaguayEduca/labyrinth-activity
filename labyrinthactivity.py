@@ -68,6 +68,7 @@ EMPTY = -800
 DEFAULT_FONTS = ['Sans', 'Serif', 'Monospace']
 USER_FONTS_FILE_PATH = env.get_profile_path('fonts')
 GLOBAL_FONTS_FILE_PATH = '/etc/sugar_fonts'
+IGNORE_FILES = ['.gitignore', 'MANIFEST', '*.pyc', '*~', '*.bak', 'pseudo.po']
 
 
 def stop_editing(main_area):
@@ -1038,7 +1039,12 @@ class LabyrinthActivity(activity.Activity):
 
         tar.close()
 
+################
+
+##############
+
     def write_file(self, file_path):
+        
         tar = Tarball(file_path, 'w')
 
         self._main_area.update_save()

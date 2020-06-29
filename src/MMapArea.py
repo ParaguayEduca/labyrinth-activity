@@ -513,7 +513,7 @@ class MMapArea (Gtk.DrawingArea):
 
     def make_primary (self, thought):
         if self.primary:
-            print "Warning: Already have a primary root"
+            print ("Warning: Already have a primary root")
             if self.title_change_handler:
                 self.primary.disconnect (self.title_change_handler)
         self.title_change_handler = thought.connect ("title_changed", self.title_changed_cb)
@@ -1116,7 +1116,7 @@ class MMapArea (Gtk.DrawingArea):
             elif node.nodeName == "link":
                 self.load_link (node)
             else:
-                print "Warning: Unknown element type.  Ignoring: "+node.nodeName
+                print ("Warning: Unknown element type.  Ignoring: "+node.nodeName)
 
         self.finish_loading ()
 
@@ -1419,7 +1419,7 @@ class CursorFactory:
         self.__dict__ = self.__shared_state
 
     def get_cursor(self, cur_type):
-        if not self.cursors.has_key(cur_type):
+        if cur_type not in self.cursors:     
             cur = Gdk.Cursor(cur_type)
             self.cursors[cur_type] = cur
         return self.cursors[cur_type]
