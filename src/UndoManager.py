@@ -33,6 +33,11 @@ DELETE_LETTER = 102
 DELETE_WORD = 103
 TRANSFORM_CANVAS = 104
 
+try:
+  basestring
+except NameError:
+  basestring = str
+  
 class UndoAction:
     def __init__(self, owner, undo_type, callback, *args):
         self.owner = owner
