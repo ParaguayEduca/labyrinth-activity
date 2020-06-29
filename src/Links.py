@@ -52,7 +52,7 @@ class Link (GObject.GObject):
         self.strength = strength
         self.element = save.createElement ("link")
         self.selected = False
-        self.color = utils.gtk_to_cairo_color(Gdk.Color.parse("black"))
+        self.color = utils.gtk_to_cairo_color(Gdk.color_parse('black'))
         self.model_iter = None
         self.text = None
 
@@ -139,6 +139,7 @@ class Link (GObject.GObject):
             color = utils.selected_colors["bg"]
             context.set_source_rgb (color[0], color[1], color[2])
         else:
+        #    print("Color [0][1][2]", self.color)
             context.set_source_rgb (self.color[0], self.color[1], self.color[2])
         context.stroke ()
         context.set_line_width (cwidth)
